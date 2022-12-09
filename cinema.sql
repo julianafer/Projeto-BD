@@ -7,20 +7,20 @@ use cinema;
 /*criação da tabela funcionário*/
 create table funcionario
 (
-	cpf char(11) not null,
+    cpf char(11) not null,
     nome varchar(45) not null,
-    dia	int	not null,
-    mes	int	not null,
+    dia	int not null,
+    mes	int not null,
     ano	int not null,
     genero varchar(1) null,
-	cep	char(8)	not null,
+    cep	char(8)	not null,
     numero_end int not null,
     condominio varchar(45) null,
     funcionario_cpf char(11) null,
-    numero_cart	int	not null,
+    numero_cart	int not null,
     foto blob not null, /*como adicionar?*/
-    digital	blob not null, /*como adicionar?*/
-	constraint PK_funcionario primary key (cpf),
+    digital blob not null, /*como adicionar?*/
+    constraint PK_funcionario primary key (cpf),
     constraint AK_funcionario_cep unique (cep),
     constraint FK_funcionario_funcionario FOREIGN KEY (funcionario_cpf) REFERENCES funcionario (cpf),
     constraint AK_funcionario_numero unique (numero_cart),
@@ -28,7 +28,7 @@ create table funcionario
     constraint CK_ano check(ano>0),
     constraint CK_numero check(numero_end>0),
     constraint CK_genero check(genero like 'f' or 'm')
-    /* constraint AK_funcionario_digital unique(digital) 	tá dando erro :( */
+    /* constraint AK_funcionario_digital unique(digital) tá dando erro :( */
 );
 drop table funcionario; /*para testar o erro*/
 
@@ -87,7 +87,7 @@ create table filme
 /*criação da tabela sala*/
 create table sala 
 (
-	numero int not null,
+    numero int not null,
     tipo varchar(1) default 'n' not null,
     constraint PK_sala primary key (numero),
     constraint CK_numero_sala check(numero>0),
@@ -133,7 +133,7 @@ create table estudante
 /*criação da tabela personagem*/
 create table personagem
 (
-	numero int not null,
+    numero int not null,
     filme_codigo int not null,
     nome varchar(45) not null,
     genero varchar(1) not null,
@@ -145,7 +145,7 @@ create table personagem
 /*criaçao da tabela genero*/
 create table genero 
 (
-	genero varchar(45) not null,
+    genero varchar(45) not null,
     filme_codigo int not null,
     constraint PK_genero primary key (genero, filme_codigo),
     constraint FK_genero_filme foreign key (filme_codigo) references filme (codigo)
@@ -154,7 +154,7 @@ create table genero
 /*criação da tabela poltrona*/
 create table poltrona 
 (
-	sala_numero int not null,
+    sala_numero int not null,
     numero int not null,
     fileira varchar(1) not null,
     constraint PK_poltrona primary key (sala_numero, numero, fileira),
