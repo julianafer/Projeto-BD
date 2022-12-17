@@ -277,10 +277,10 @@ order by f.nome desc;
 
 /*Obter a quantidade de funcionários que possuem condomínio e que nasceram depois dos anos 1990 de cada genero*/
 select genero as 'Gênero',
-	   COUNT(*) AS Quantidade
+       COUNT(*) AS Quantidade
 from funcionario
 where condominio is not null and
-	  ano_nasc between 1990 and 2004
+      ano_nasc between 1990 and 2004
 group by genero;
 
 /*Obter o nome dos filmes que serão passados nas salas de número ímpar*/
@@ -288,13 +288,13 @@ select s.sala_numero as 'Número da sala',
        f.nome as 'Filme'
 from sessao as s
 join filme as f
-	 on s.filme_codigo = f.codigo
+     on s.filme_codigo = f.codigo
 where s.sala_numero in (1,3,5)
 order by s.sala_numero asc;
 
 /*Obter horário e filme da sessão mais cedo do cinema*/
 select min(s.hora) as 'Horário',
-	   f.nome as 'Filme'
+       f.nome as 'Filme'
 from sessao as s
 join filme as f
-	 on s.filme_codigo = f.codigo;
+     on s.filme_codigo = f.codigo;
