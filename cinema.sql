@@ -207,10 +207,10 @@ insert into venda values (762, '2021-10-09', '15:15:15', '54801375209', '6586543
 insert into venda values (234, '2022-12-16', '19:30:45', '54801375209', '12345678976'); # Carlinhos Mais vendeu para Ricardo Luiz
 
 /*inserindo dados na tabela filme*/
-insert into filme values (31, 'Ricos de Amor', 'd'); /*default não tá funcionando*/
+insert into filme values (31, 'Ricos de Amor', 'd');
 insert into filme values (12, 'Crônicas de natal', 'l');
-insert into filme values (73, 'Vingadores', 'd'); /*default não tá funcionando*/
-insert into filme values (45, 'Minha mãe é uma peça', 'd'); /*default não tá funcionando*/
+insert into filme values (73, 'Vingadores', 'd');
+insert into filme values (45, 'Minha mãe é uma peça', 'd');
 insert into filme values (25, 'Coringa', 'l');
 
 /*inserindo dados na tabela sala*/
@@ -290,7 +290,7 @@ from sessao as s
 join filme as f
      on s.filme_codigo = f.codigo
 where s.sala_numero in (1,3,5)
-order by s.sala_numero asc;
+order by s.sala_numero;
 
 /*Obter horário e filme da sessão mais cedo do cinema*/
 select min(s.hora) as 'Horário',
